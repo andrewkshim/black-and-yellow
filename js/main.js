@@ -18,6 +18,8 @@ $(document).ready(function() {
   }
 
   function onSplitMouseMove(ev) {
+    ev.preventDefault();
+    ev.stopPropagation();
     if (!lastMouseX) {
       lastMouseX = ev.clientX;
       return;
