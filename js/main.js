@@ -11,10 +11,11 @@ $(document).ready(function() {
     const knobDimensions = knobElement.getBoundingClientRect();
     const splitDimensions = splitElement.getBoundingClientRect();
     const knobTopPosition = (splitDimensions.height / 2) - (knobDimensions.height / 2);
-    const knobLeftPosition = splitDimensions.width - (knobDimensions.width / 2);
+    const knobLeftPosition = (splitDimensions.width / 2) - (knobDimensions.width / 2);
     knobElement.style.top = `${ knobTopPosition }px`;
     knobElement.style.left = `${ knobLeftPosition }px`;
-    resizableElement.style.width = `${ splitDimensions.width }px`;
+    fixedElement.style.width = `${ splitDimensions.width }px`;
+    resizableElement.style.width = `${ splitDimensions.width / 2 }px`;
   }
 
   function resizeSplit(deltaX) {
@@ -54,10 +55,25 @@ $(document).ready(function() {
   function attachEventListeners() {
     knobElement.addEventListener('mousedown', onKnobMouseDown);
     splitElement.addEventListener('mouseup', onSplitMouseUp);
-    document.addEventListener('scroll', onDocumentScroll);
+  }
+
+  let animationFrame;
+
+  function startKnobPositionAdjustment() {
+    animationFrame = requestAnimationFrame(function() {
+      knobElement.style.top = `${ window.pageYOffset + (window.innerHeight / 2)}px`;
+      startKnobPositionAdjustment();
+    });
+  }
+
+  // this function not used right now
+  function stopKnobPositionAdjustment() {
+    cancelAnimationFrame(animationFrame);
+    animationFrame = null;
   }
 
   // start
   setInitialDimensions();
   attachEventListeners();
+  startKnobPositionAdjustment();
 });
