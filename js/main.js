@@ -1,4 +1,3 @@
-
 $(document).ready(function() {
   const splitElement = document.getElementById('split');
   const resizableElement = document.getElementById('resizable');
