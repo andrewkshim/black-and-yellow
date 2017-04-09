@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 html, body {
   width: 100%;
   font-size: 12px;
@@ -8,30 +12,40 @@ html, body {
   width: 80%;
 }
 
-.hero {
+#split {
   height: 40rem;
   position: relative;
   width: 100%;
 }
 
-.hero__split {
+.split__left {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border: 1px solid black;
+}
+
+.split__right {
+  border: 1px solid red;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
   position: absolute;
 }
 
-.hero__split--left {
-  height: 100%;
-  width: 50%;
-  border: 1px solid black;
-  overflow-x: hidden;
-}
-
-.hero__split--right {
-  height: 100%;
+.split__fixed {
   width: 100%;
-  border: 1px solid blue;
 }
 
-.hero__title {
+.split__knob {
+  width: 5rem;
+  height: 5rem;
+  background-color: tomato;
+  position: absolute;
+  cursor: pointer;
+}
+
+.split__title {
   position: absolute;
   width: 100%;
   text-align: center;
