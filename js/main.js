@@ -7,13 +7,14 @@ $(document).ready(function() {
 
   let lastMouseX;
 
-  function setInitialKnobPosition() {
+  function setInitialDimensions() {
     const knobDimensions = knobElement.getBoundingClientRect();
     const splitDimensions = splitElement.getBoundingClientRect();
     const knobTopPosition = (splitDimensions.height / 2) - (knobDimensions.height / 2);
     const knobLeftPosition = splitDimensions.width - (knobDimensions.width / 2);
     knobElement.style.top = `${ knobTopPosition }px`;
     knobElement.style.left = `${ knobLeftPosition }px`;
+    resizableElement.style.width = `${ splitDimensions.width }px`;
   }
 
   function resizeSplit(deltaX) {
@@ -46,12 +47,17 @@ $(document).ready(function() {
     splitElement.removeEventListener('mousemove', onSplitMouseMove);
   }
 
+  function onDocumentScroll() {
+    knobElement.style.top = `${ window.pageYOffset + (window.innerHeight / 2)}px`;
+  }
+
   function attachEventListeners() {
     knobElement.addEventListener('mousedown', onKnobMouseDown);
     splitElement.addEventListener('mouseup', onSplitMouseUp);
+    document.addEventListener('scroll', onDocumentScroll);
   }
 
   // start
-  setInitialKnobPosition();
+  setInitialDimensions();
   attachEventListeners();
 });
