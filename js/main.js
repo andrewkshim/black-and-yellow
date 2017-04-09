@@ -17,29 +17,56 @@ $(document).ready(function() {
     resizableElement.style.width = `${ splitDimensions.width / 2 }px`;
   }
 
-  function resizeSplit(deltaX) {
-    const splitDimensions = splitElement.getBoundingClientRect();
-    const resizableDimensions = resizableElement.getBoundingClientRect();
-    fixedElement.style.width = `${ splitDimensions.width }px`;
-    resizableElement.style.width = `${ resizableDimensions.width + deltaX }px`;
-  }
-
   function onSplitMouseMove(ev) {
     if (!lastMouseX) {
       lastMouseX = ev.clientX;
       return;
     }
-    const knobDimensions = knobElement.getBoundingClientRect();
+
     const splitDimensions = splitElement.getBoundingClientRect();
+    const knobDimensions = knobElement.getBoundingClientRect();
+    const resizableDimensions = resizableElement.getBoundingClientRect();
+
+    const leftBoundary = splitDimensions.left;
+    const rightBoundary = splitDimensions.left + splitDimensions.width;
+
     const currentKnobX = knobDimensions.left - splitDimensions.left;
     const deltaX = ev.clientX - lastMouseX;
+    const nextKnobX = currentKnobX + deltaX;
+    const nextKnobCenter = knobDimensions.left + (knobDimensions.width / 2);
     lastMouseX = lastMouseX + deltaX;
-    knobElement.style.left = `${ currentKnobX + deltaX }px`;
-    resizeSplit(deltaX);
+    fixedElement.style.width = `${ splitDimensions.width }px`;
+
+    if (nextKnobCenter < leftBoundary) {
+      knobElement.style.left = `${ -(knobDimensions.width / 2) }px`;
+      resizableElement.style.width = `0px`;
+    } else if (nextKnobCenter > rightBoundary) {
+      knobElement.style.left = `${ splitDimensions.width - (knobDimensions.width / 2) }px`;
+      resizableElement.style.width = `${ splitDimensions.width }px`;
+    } else {
+      resizableElement.style.width = `${ resizableDimensions.width + deltaX }px`;
+      knobElement.style.left = `${ nextKnobX }px`;
+    }
   }
 
   function onKnobMouseDown() {
     splitElement.addEventListener('mousemove', onSplitMouseMove);
+  }
+
+  function onKnobMouseUp() {
+    splitElement.removeEventListener('mousemove', onSplitMouseMove);
+  }
+
+  function onKnobMouseEnter() {
+    knobElement.addEventListener('mousedown', onKnobMouseDown);
+    knobElement.addEventListener('mouseup', onKnobMouseUp);
+  }
+
+  function onKnobMouseLeave() {
+    lastMouseX = null;
+    knobElement.removeEventListener('mousedown', onKnobMouseDown);
+    knobElement.removeEventListener('mouseup', onKnobMouseUp);
+    splitElement.removeEventListener('mousemove', onSplitMouseMove);
   }
 
   function onSplitMouseUp() {
@@ -52,7 +79,8 @@ $(document).ready(function() {
   }
 
   function attachEventListeners() {
-    knobElement.addEventListener('mousedown', onKnobMouseDown);
+    knobElement.addEventListener('mouseenter', onKnobMouseEnter);
+    knobElement.addEventListener('mouseleave', onKnobMouseLeave);
     splitElement.addEventListener('mouseup', onSplitMouseUp);
   }
 
