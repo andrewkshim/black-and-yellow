@@ -13,14 +13,11 @@ html, body {
 }
 
 #split {
-  height: 40rem;
   position: relative;
   width: 100%;
 }
 
 .split__left {
-  position: absolute;
-  height: 100%;
   width: 100%;
   border: 1px solid black;
 }
@@ -28,9 +25,10 @@ html, body {
 .split__right {
   border: 1px solid red;
   height: 100%;
-  width: 100%;
   overflow: hidden;
   position: absolute;
+  top: 0;
+  background-color: white;
 }
 
 .split__fixed {
@@ -46,6 +44,7 @@ html, body {
 }
 
 .split__title {
+  top: 0;
   position: absolute;
   width: 100%;
   text-align: center;
