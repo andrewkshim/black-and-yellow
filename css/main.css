@@ -4,12 +4,13 @@
 
 html, body {
   width: 100%;
-  font-size: 12px;
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
 }
 
 .main {
   margin: 0 auto;
-  width: 80%;
+  width: 100%;
 }
 
 #split {
@@ -19,11 +20,11 @@ html, body {
 
 .split__left {
   width: 100%;
-  border: 1px solid black;
+/*   border: 1px solid black; */
 }
 
 .split__right {
-  border: 1px solid red;
+  border-right: 2px solid black;
   height: 100%;
   overflow: hidden;
   position: absolute;
@@ -45,19 +46,38 @@ html, body {
 }
 
 .split__title {
-  top: 0;
+  top: 70%;
   position: absolute;
   width: 100%;
   text-align: center;
+  font-family: 'EB Garamond', serif;
+  font-size: 48px;
 }
 
+.matty-headshot {
+  background-image: url('../images/matty_headshot.JPG');
+}
 
+.shimmy-headshot {
+  background-image: url('../images/shimmy_headshot.JPG');
+}
 
+.headshot {
+  position: relative;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 section {
   height: 100vh;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+p {
+  line-height: 35px;
 }
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 /* BIO */
@@ -65,13 +85,12 @@ section {
 .bio {
   flex-direction: row;
   justify-content: space-around;
-
 }
 
 .description, .carousel {
   width: 40%;
   height: 50%;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   display: flex;
   flex-direction: column;
 }
@@ -120,6 +139,15 @@ section {
   cursor: pointer;
 }
 
+h3 {
+  display: block;
+  text-align: center;
+  font-family: 'EB Garamond', serif;
+  font-size: 24px;
+  border: 2px solid black;
+  padding: 0px;
+}
+
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 /* SKILLS */
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
@@ -127,19 +155,24 @@ section {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  background-color: #EDEEEF;
 }
 
 .skill-list {
   list-style: none;
   width: 25%;
   height: 60%;
+  font-family: 'EB Garamond', serif;
+  font-size: 24px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
 }
 
-.skill-item {
-/*   border: 1px solid black; */
+.skill-list-matty {
+  text-align: right;
+  padding-left: 0;
+  padding-right: 40px;
 }
 
 .rating {
@@ -170,17 +203,18 @@ section {
 /* RULES */
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
-ol {
+.rule-list {
+  list-style: none;
   width: 90%;
   height: 50%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  text-align: center;
+  font-size: 24px;
+  font-family: 'Covered By Your Grace', cursive;
 }
 
-.rule-list {
-  border: 1px solid black;
-}
 
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
@@ -190,6 +224,7 @@ ol {
 .partner-assessment {
   flex-direction: column;
   justify-content: space-around;
+  background-color: #EDEEEF;
 }
 
 .row {
@@ -204,7 +239,8 @@ ol {
 .assessment {
   width: 30%;
   height: 90%;
-  border:  1px solid black;
+  text-align: center;
+/*   border:  1px solid black; */
 }
 
 .icon-wrapper {
@@ -234,6 +270,37 @@ ol {
   margin: 0;
   border-top: 1px solid black;
 }
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* AUDITION VIDEO */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.video {
+  background-color: #353439;
+  color: #FFFFFF;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* FOOTER */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+footer {
+  height: 50vh;
+  background-color: #26262A;
+  color: #FFFFFF;
+}
+
+footer h1 {
+  margin: 0;
+}
+
+
+
+
+
+
+
+
+
 
 
 

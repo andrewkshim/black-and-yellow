@@ -4,6 +4,7 @@
   <meta charset='UTF-8'>
   <title>Black and Yellow</title>
   <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Covered+By+Your+Grace|EB+Garamond|Lato" rel="stylesheet">
   <link rel='stylesheet' href='./css/main.css'>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 </head>
@@ -13,8 +14,8 @@
     <div id='split' class='split'>
       <!-- START Matty Section -->
       <div class='split__left'>
-        <section class="headshot">
-          <h1>Matty Headshot</h1>
+        <section class="headshot matty-headshot">
+          <h1 class='split__title'>#BlackAndYellow</h1>
         </section>
         <section id="matty-bio" class="bio">
           <div class="carousel">
@@ -30,18 +31,11 @@
           </div>
           <div class="description">
             <h3>Matty</h3>
-            <p>I tell professional data scientists how to teach data science, for a living. And then after that, I manage the students to make sure they're enjoying their experience. So working with many different personality types comes naturally to me. Though you wouldn't guess it by how tall I am, I have little athletic ability, though I can dance in any style and to any song. Hopefully, my intelligence and knowledge of the show will compensate for that!</p>
+            <p>I tell professional data scientists how to teach data science, for a living. And then after that, I manage the students to make sure they're enjoying their experience. So working with many different personality types comes naturally to me. Though you wouldn't guess it by how tall I am, I am not known for my athletic ability, rather, I can dance in any style and to any song. Hopefully, my intelligence and knowledge of the show will compensate for that!</p>
           </div>
         </section>
 
         <section class="skills">
-          <ul class="skill-list">
-            <li class="skill-item">Decisiveness</li>
-            <li class="skill-item">Physical Strength</li>
-            <li class="skill-item">Fearlessness</li>
-            <li class="skill-item">Open to Feedback</li>
-            <li class="skill-item">Savviness</li>
-          </ul>
           <ul class="rating">
             <li class="decisiveness">
               <img src="icons/plane.png" alt="plane" class="plane matty-1">
@@ -79,13 +73,20 @@
               <img src="icons/plane.png" alt="plane" class="plane matty-5">
             </li>
           </ul>
+          <ul class="skill-list skill-list-matty">
+            <li class="skill-item">Decisiveness</li>
+            <li class="skill-item">Physical Strength</li>
+            <li class="skill-item">Fearlessness</li>
+            <li class="skill-item">Open to Feedback</li>
+            <li class="skill-item">Savviness</li>
+          </ul>
         </section>
 
         <section class="rules">
-          <ol>
-            <li class="rule-list">ABR: Always Be Running <i class="em em-runner"></i></li>
-            <li class="rule-list">Don't take any big chances, unless we can convince another team to take it with us. <i class="em em-smiling_imp"></i></li>
-            <li class="rule-list">Read your clue. Again. <i class="em em-bookmark"></i></li>
+          <ul class="rule-list">
+            <li>1. ABR: Always Be Running <i class="em em-runner"></i></li>
+            <li>2. Don't take any big chances, unless we can convince another team to take it with us. <i class="em em-smiling_imp"></i></li>
+            <li>3. Read your clue. Again. <i class="em em-bookmark"></i></li>
           </ol>
         </section>
 
@@ -124,8 +125,8 @@
       <!-- START Shimmy Section -->
       <div id='resizable' class='split__right'>
         <div id='fixed' class='split__fixed'>
-          <section class="headshot">
-            <h1>Shimmy Headshot</h1>
+          <section class="headshot shimmy-headshot">
+            <h1 class='split__title'>#BlackAndYellow</h1>
           </section>
           <section id="shimmy-bio" class="bio">
             <div class="description">
@@ -194,10 +195,10 @@
         </section>
 
           <section class="rules">
-            <ol>
-              <li class="rule-list">Stay cool. <i class="em em-sunglasses"></i></li>
-              <li class="rule-list">Assess the situation. (check the front, the back, the sides, and the backside <i class=" em em-peach"></i>)</li>
-              <li class="rule-list">Win. <i class="em em-trophy"></i></li>
+            <ul class="rule-list">
+              <li>1. Stay cool. <i class="em em-sunglasses"></i></li>
+              <li>2. Assess the situation. (check the front, the back, the sides, and the backside <i class=" em em-peach"></i>)</li>
+              <li>3. Win. <i class="em em-trophy"></i></li>
             </ol>
           </section>
 
@@ -235,8 +236,13 @@
       </div>
       <!-- END Shimmy Section -->
       <div id='knob' class='split__knob'></div>
-      <h1 class='split__title'>Black and Yellow</h1>
     </div>
+    <section class="video">
+      <h1>Video</h1>
+    </section>
+    <footer>
+      <h1>Call me?</h1>
+    </footer>
   </div>
   <script src='./js/knob.js'></script>
   <script src='./js/carousel.js'></script>
