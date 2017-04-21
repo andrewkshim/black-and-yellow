@@ -23,10 +23,18 @@ $(document).ready(function() {
     }
   }
 
-  function attachCarouselEventHandlers(bioElement) {
+  function setTrackerDot(currentIndex, bioElement) {
+    bioElement.find('.tracker-dot').removeClass('selected-tracker-dot');
+    bioElement.find(`.tracker-dot-${ currentIndex + 1 }`).addClass('selected-tracker-dot');
+  }
+
+  function initCarousel(bioElement) {
     const leftBtn = bioElement.find('.carousel-btn-left');
     const rightBtn = bioElement.find('.carousel-btn-right');
+
     let currentImageIndex = 0;
+    setTrackerDot(currentImageIndex, bioElement);
+
     leftBtn.on('click', function() {
       if (currentImageIndex === 0) {
         currentImageIndex = 2;
@@ -35,8 +43,10 @@ $(document).ready(function() {
       } else if (currentImageIndex === 2) {
         currentImageIndex = 1;
       }
+      setTrackerDot(currentImageIndex, bioElement);
       adjustImages(bioElement, currentImageIndex);
     });
+
     rightBtn.on('click', function() {
       if (currentImageIndex === 0) {
         currentImageIndex = 1;
@@ -45,10 +55,11 @@ $(document).ready(function() {
       } else if (currentImageIndex === 2) {
         currentImageIndex = 0;
       }
+      setTrackerDot(currentImageIndex, bioElement);
       adjustImages(bioElement, currentImageIndex);
     });
   }
 
-  attachCarouselEventHandlers(mattyBioElement);
-  attachCarouselEventHandlers(shimmyBioElement);
+  initCarousel(mattyBioElement);
+  initCarousel(shimmyBioElement);
 });
