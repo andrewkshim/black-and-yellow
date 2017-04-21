@@ -1,10 +1,12 @@
 $(document).ready(function() {
+
   const splitElement = document.getElementById('split');
   const resizableElement = document.getElementById('resizable');
   const fixedElement = document.getElementById('fixed');
   const knobElement = document.getElementById('knob');
 
   let lastMouseX;
+  let movementVector;
 
   function setInitialDimensions() {
     const knobDimensions = knobElement.getBoundingClientRect();
@@ -53,10 +55,11 @@ $(document).ready(function() {
 
   function onKnobMouseDown() {
     splitElement.addEventListener('mousemove', onSplitMouseMove);
+    movementVector = [0, 0];
   }
 
   function onKnobMouseUp() {
-    splitElement.removeEventListener('mousemove', onSplitMouseMove);
+    //splitElement.removeEventListener('mousemove', onSplitMouseMove);
   }
 
   function onKnobMouseEnter() {
@@ -65,10 +68,10 @@ $(document).ready(function() {
   }
 
   function onKnobMouseLeave() {
-    lastMouseX = null;
-    knobElement.removeEventListener('mousedown', onKnobMouseDown);
-    knobElement.removeEventListener('mouseup', onKnobMouseUp);
-    splitElement.removeEventListener('mousemove', onSplitMouseMove);
+    //lastMouseX = null;
+    //knobElement.removeEventListener('mousedown', onKnobMouseDown);
+    //knobElement.removeEventListener('mouseup', onKnobMouseUp);
+    //splitElement.removeEventListener('mousemove', onSplitMouseMove);
   }
 
   function onSplitMouseUp() {
